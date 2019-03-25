@@ -1,16 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <artifactId>taotao-manager</artifactId>
         <groupId>com.taotao</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>taotao-manager-service</artifactId>
     <packaging>war</packaging>
+
 
 
     <dependencies>
@@ -21,7 +19,8 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
-        <!--依赖mapper-->
+
+        <!--依赖Mapper-->
         <dependency>
             <artifactId>taotao-manager-mapper</artifactId>
             <groupId>com.taotao</groupId>
@@ -113,24 +112,24 @@
         </dependency>
 
         <!--日志-->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-jcl</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <optional>true</optional>
-        </dependency>
+        <!-- <dependency>
+             <groupId>org.slf4j</groupId>
+             <artifactId>slf4j-log4j12</artifactId>
+         </dependency>
+         <dependency>
+             <groupId>org.slf4j</groupId>
+             <artifactId>slf4j-jcl</artifactId>
+         </dependency>
+         <dependency>
+             <groupId>log4j</groupId>
+             <artifactId>log4j</artifactId>
+             <optional>true</optional>
+         </dependency>
+         <dependency>
+             <groupId>org.apache.logging.log4j</groupId>
+             <artifactId>log4j-core</artifactId>
+             <optional>true</optional>
+         </dependency>-->
 
 
         <!--文件上传组件-->
@@ -194,6 +193,7 @@
         </dependency>
     </dependencies>
 
+
     <build>
         <defaultGoal>install</defaultGoal>
         <plugins>
@@ -226,6 +226,4 @@
             </resource>
         </resources>
     </build>
-
-
 </project>
