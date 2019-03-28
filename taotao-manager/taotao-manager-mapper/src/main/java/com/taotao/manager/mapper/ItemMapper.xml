@@ -2,10 +2,27 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="com.taotao.manager.mapper.ItemMapper">
+
+    <!--deleteById-->
+    <delete id="deleteById" parameterType="int">
+        DELETE  FROM  item WHERE id=#{id}
+    </delete>
+
+    <!--getItemById-->
+    <select id="getItemById" parameterType="int" resultType="Item">
+        SELECT  * FROM  ITEM WHERE  id=#{id}
+    </select>
+
+    <!--modifyItem-->
+    <update id="modifyItem" parameterType="Item">
+        UPDATE  item SET  title=#{title} WHERE  id=#{id}
+    </update>
+
     <!--addItem-->
     <insert id="addItem" parameterType="Item">
-        INSERT  INTO tb_item(id,title,sell_point,price,num,barcode,image,cid,status,created,updated)
-        VALUES(#{id},#{title},#{sellPoint},#{price},#{num},#{barcode},#{image},#{cid},#{status},#{created},#{updated})
+        INSERT  INTO  item(title)VALUES(#{title})
     </insert>
+
 </mapper>

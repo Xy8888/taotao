@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Service(interfaceClass = ItemService.class)
-public class ItemServiceImpl implements ItemService {
+public class ItemServiceImpl extends BaseServiceImpl<Item> implements ItemService {
 
     @Autowired
     private ItemMapper itemMapper;
@@ -19,4 +19,5 @@ public class ItemServiceImpl implements ItemService {
     public int addItem(Item item) throws Exception {
         return itemMapper.addItem(item);
     }
+
 }

@@ -12,12 +12,17 @@
     <artifactId>taotao-manager-pojo</artifactId>
     <packaging>jar</packaging>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
 
     <dependencies>
-
-
-
-
+        <!--JPA注解-->
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -27,7 +32,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.6.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -42,6 +47,7 @@
                 </configuration>
             </plugin>
         </plugins>
+
         <!--IDEA编译src的java文件，而目录下的xml文件并不会一起打包，需要手动指定哪些配置文件需要读取-->
         <resources>
             <resource>
@@ -52,6 +58,5 @@
             </resource>
         </resources>
     </build>
-
 
 </project>

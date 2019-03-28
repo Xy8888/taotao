@@ -13,17 +13,37 @@
     <packaging>jar</packaging>
 
 
-
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
 
     <dependencies>
-        <!--依赖POJO-->
+
+        <!--以来POJO-->
         <dependency>
-            <groupId>com.taotao</groupId>
             <artifactId>taotao-manager-pojo</artifactId>
+            <groupId>com.taotao</groupId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
+        <!-- 通用Mapper 将MyBatis由面向过程转换成了面向对象 -->
+        <dependency>
+            <groupId>com.github.abel533</groupId>
+            <artifactId>mapper</artifactId>
+        </dependency>
+
+        <!-- 分页助手 -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.jsqlparser</groupId>
+            <artifactId>jsqlparser</artifactId>
+        </dependency>
     </dependencies>
+
 
     <build>
         <defaultGoal>install</defaultGoal>
@@ -32,7 +52,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.6.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -47,6 +67,15 @@
                 </configuration>
             </plugin>
         </plugins>
+        <!--IDEA编译src的java文件，而目录下的xml文件并不会一起打包，需要手动指定哪些配置文件需要读取-->
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 
 </project>
