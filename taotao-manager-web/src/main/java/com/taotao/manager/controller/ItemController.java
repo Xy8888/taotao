@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Date;
-import java.util.List;
 
 @Controller
 @RequestMapping(value = "item")
@@ -46,11 +45,4 @@ public class ItemController {
         return pageInfo;
     }
 
-    @RequestMapping(method =  RequestMethod.GET, value = "/list2")
-    @ResponseBody
-    public PageInfo<Item> getList2() {
-        List<Item> items = itemService.getList();
-        PageInfo<Item> pageInfo = new PageInfo<Item>(items);
-        return pageInfo;
-    }
 }
