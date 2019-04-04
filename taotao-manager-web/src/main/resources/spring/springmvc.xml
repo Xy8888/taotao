@@ -16,8 +16,8 @@
     <context:annotation-config />
     <mvc:annotation-driven />
 
-    <!-- 包扫描
-    <context:component-scan base-package="com.taotao.manager.controller"/>-->
+    <!-- 包扫描-->
+    <!--<context:component-scan base-package="com.taotao.manager.controller"/>-->
 
     <!--视图解析器配置-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -5,11 +5,4 @@ import com.taotao.manager.model.Item;
 
 public interface ItemMapper extends Mapper<Item>{
 
-    int addItem(Item item);
-
-    int modifyItem(Item item);
-
-    Item getItemById(int id);
-
-    int deleteById(int id);
 }
