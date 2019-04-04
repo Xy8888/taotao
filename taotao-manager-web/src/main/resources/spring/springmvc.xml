@@ -32,5 +32,11 @@
         <property name="maxUploadSize" value="100000000"/>
     </bean>
 
+    <!-- JSON处理工具类  防止火狐浏览器对json响应格式不兼容-->
+    <bean class="com.fasterxml.jackson.databind.ObjectMapper" id="objectMapper" />
+
+    <!-- 解析配置文件-->
+    <context:property-placeholder location="classpath:resource/sysconstant.properties"/>
+
     <import resource="spring-dubbo.xml"/>
 </beans>

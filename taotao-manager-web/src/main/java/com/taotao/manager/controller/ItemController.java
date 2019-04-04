@@ -7,9 +7,12 @@ import com.taotao.manager.service.ItemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class ItemController {
@@ -18,17 +21,22 @@ public class ItemController {
     @Reference(interfaceClass = ItemService.class)
     private ItemService itemService;
 
+    @RequestMapping(value = "/item", method = RequestMethod.POST)
     @ResponseBody
-    @RequestMapping(value = "item", method = RequestMethod.POST)
     public String addItem(Item item, String desc) {
         int acount = itemService.add(item, desc);
         return "success";
     }
 
-    @RequestMapping(method =  RequestMethod.GET, value = "/list")
+    @RequestMapping(value = "/item", method =  RequestMethod.GET)
     @ResponseBody
-    public PageInfo<Item> getList(int page, int size) {
+    public Map<String, Object> list(
+            @RequestParam(value = "page", required = false, defaultValue = "1") int page,
+            @RequestParam(value = "rows", required = false, defaultValue = "10") int size) {
         PageInfo<Item> pageInfo = itemService.getPageList(page, size);
-        return pageInfo;
+        Map<String, Object> dataMap = new HashMap<>();
+        dataMap.put("total", pageInfo.getTotal());
+        dataMap.put("rows", pageInfo.getList());
+        return dataMap;
     }
 }
