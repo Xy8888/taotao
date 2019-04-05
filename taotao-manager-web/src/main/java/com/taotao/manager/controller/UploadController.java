@@ -1,6 +1,7 @@
 package com.taotao.manager.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.taotao.fdfs.UploadUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,9 +31,29 @@ public class UploadController {
     @Value("${UploadImageWebPath}")
     private String UploadImageWebPath;
 
+    @Value("${TrackerServerPath}")
+    private String TrackerServerPath;
+
+    @Value("${FastDFSWebLink}")
+    private String FastDFSWebLink;
+
     @ResponseBody
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     public String upload(@RequestParam(value = "uploadFile") MultipartFile file, HttpSession session) throws IOException {
+        String subfix = StringUtils.substringAfterLast(file.getOriginalFilename(), ".");
+        String[] uploadinfos = UploadUtil.upload(TrackerServerPath, file.getBytes(), subfix);
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("error", 0);
+        map.put("url", FastDFSWebLink+uploadinfos[0]+"/"+uploadinfos[1]);
+        map.put("height", 100);
+        map.put("width", 100);
+        String json = objectMapper.writeValueAsString(map);
+        return json;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/uploadSpringMVC", method = RequestMethod.POST)
+    public String uploadSpringMVC(@RequestParam(value = "uploadFile") MultipartFile file, HttpSession session) throws IOException {
         String realPath = session.getServletContext().getRealPath("upload");
         String filename = file.getOriginalFilename();
         String subfix = StringUtils.substringAfter(filename, ".");

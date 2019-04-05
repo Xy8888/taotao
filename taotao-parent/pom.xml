@@ -9,6 +9,7 @@
   <modules>
     <module>../taotao-manager-web</module>
     <module>../taotao-manager</module>
+      <module>../taotao-common</module>
   </modules>
 
 
@@ -46,10 +47,19 @@
     <mapper.version>2.3.4</mapper.version>
     <jsqlparser.version>0.9.1</jsqlparser.version>
     <jackson.version>2.9.2</jackson.version>
+    <fastdfs.version>1.20</fastdfs.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
+
+      <!-- fastdfs客户端 -->
+      <dependency>
+        <groupId>fastdfs_client</groupId>
+        <artifactId>fastdfs_client</artifactId>
+        <version>${fastdfs.version}</version>
+      </dependency>
+
       <!-- Jackson Json处理工具包 -->
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
