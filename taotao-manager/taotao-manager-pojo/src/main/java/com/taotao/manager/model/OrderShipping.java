@@ -1,73 +1,80 @@
-/******************************************************************
-** 类    名：OrderShipping
-** 描    述：
-** 创 建 者：bianj
-** 创建时间：2019-03-30 19:25:38
-******************************************************************/
+/*
+ * Welcome to use the TableGo Tools.
+ * 
+ * http://vipbooks.iteye.com
+ * http://blog.csdn.net/vipbooks
+ * http://www.cnblogs.com/vipbooks
+ * 
+ * Author:bianj
+ * Email:edinsker@163.com
+ * Version:5.0.0
+ */
 
 package com.taotao.manager.model;
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
 
 /**
- * (TB_ORDER_SHIPPING)
+ * TB_ORDER_SHIPPING
  * 
  * @author bianj
- * @version 1.0.0 2019-03-30
+ * @version 1.0.0 2019-04-11
  */
 @Entity
 @Table(name = "TB_ORDER_SHIPPING")
 public class OrderShipping implements java.io.Serializable {
     /** 版本号 */
-    private static final long serialVersionUID = 8461808429376084888L;
-    
+    private static final long serialVersionUID = 1045167294019747685L;
+
     /** 订单ID */
-    @Column(name = "ORDER_ID")
+    @Id
+    @Column(name = "ORDER_ID", unique = true, nullable = false, length = 50)
     private String orderId;
-    
+
     /** 收货人全名 */
-    @Column(name = "RECEIVER_NAME")
+    @Column(name = "RECEIVER_NAME", nullable = true, length = 20)
     private String receiverName;
-    
+
     /** 固定电话 */
-    @Column(name = "RECEIVER_PHONE")
+    @Column(name = "RECEIVER_PHONE", nullable = true, length = 20)
     private String receiverPhone;
-    
+
     /** 移动电话 */
-    @Column(name = "RECEIVER_MOBILE")
+    @Column(name = "RECEIVER_MOBILE", nullable = true, length = 30)
     private String receiverMobile;
-    
+
     /** 省份 */
-    @Column(name = "RECEIVER_STATE")
+    @Column(name = "RECEIVER_STATE", nullable = true, length = 10)
     private String receiverState;
-    
+
     /** 城市 */
-    @Column(name = "RECEIVER_CITY")
+    @Column(name = "RECEIVER_CITY", nullable = true, length = 10)
     private String receiverCity;
-    
+
     /** 区/县 */
-    @Column(name = "RECEIVER_DISTRICT")
+    @Column(name = "RECEIVER_DISTRICT", nullable = true, length = 20)
     private String receiverDistrict;
-    
+
     /** 收货地址，如：xx路xx号 */
-    @Column(name = "RECEIVER_ADDRESS")
+    @Column(name = "RECEIVER_ADDRESS", nullable = true, length = 200)
     private String receiverAddress;
-    
+
     /** 邮政编码,如：310001 */
-    @Column(name = "RECEIVER_ZIP")
+    @Column(name = "RECEIVER_ZIP", nullable = true, length = 6)
     private String receiverZip;
-    
+
     /**  */
-    @Column(name = "CREATED")
+    @Column(name = "CREATED", nullable = true)
     private Date created;
-    
+
     /**  */
-    @Column(name = "UPDATED")
+    @Column(name = "UPDATED", nullable = true)
     private Date updated;
-    
+
     /**
      * 获取订单ID
      * 
@@ -76,7 +83,7 @@ public class OrderShipping implements java.io.Serializable {
     public String getOrderId() {
         return this.orderId;
     }
-     
+
     /**
      * 设置订单ID
      * 
@@ -86,7 +93,7 @@ public class OrderShipping implements java.io.Serializable {
     public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
-    
+
     /**
      * 获取收货人全名
      * 
@@ -95,7 +102,7 @@ public class OrderShipping implements java.io.Serializable {
     public String getReceiverName() {
         return this.receiverName;
     }
-     
+
     /**
      * 设置收货人全名
      * 
@@ -105,7 +112,7 @@ public class OrderShipping implements java.io.Serializable {
     public void setReceiverName(String receiverName) {
         this.receiverName = receiverName;
     }
-    
+
     /**
      * 获取固定电话
      * 
@@ -114,7 +121,7 @@ public class OrderShipping implements java.io.Serializable {
     public String getReceiverPhone() {
         return this.receiverPhone;
     }
-     
+
     /**
      * 设置固定电话
      * 
@@ -124,7 +131,7 @@ public class OrderShipping implements java.io.Serializable {
     public void setReceiverPhone(String receiverPhone) {
         this.receiverPhone = receiverPhone;
     }
-    
+
     /**
      * 获取移动电话
      * 
@@ -133,7 +140,7 @@ public class OrderShipping implements java.io.Serializable {
     public String getReceiverMobile() {
         return this.receiverMobile;
     }
-     
+
     /**
      * 设置移动电话
      * 
@@ -143,7 +150,7 @@ public class OrderShipping implements java.io.Serializable {
     public void setReceiverMobile(String receiverMobile) {
         this.receiverMobile = receiverMobile;
     }
-    
+
     /**
      * 获取省份
      * 
@@ -152,7 +159,7 @@ public class OrderShipping implements java.io.Serializable {
     public String getReceiverState() {
         return this.receiverState;
     }
-     
+
     /**
      * 设置省份
      * 
@@ -162,7 +169,7 @@ public class OrderShipping implements java.io.Serializable {
     public void setReceiverState(String receiverState) {
         this.receiverState = receiverState;
     }
-    
+
     /**
      * 获取城市
      * 
@@ -171,7 +178,7 @@ public class OrderShipping implements java.io.Serializable {
     public String getReceiverCity() {
         return this.receiverCity;
     }
-     
+
     /**
      * 设置城市
      * 
@@ -181,7 +188,7 @@ public class OrderShipping implements java.io.Serializable {
     public void setReceiverCity(String receiverCity) {
         this.receiverCity = receiverCity;
     }
-    
+
     /**
      * 获取区/县
      * 
@@ -190,7 +197,7 @@ public class OrderShipping implements java.io.Serializable {
     public String getReceiverDistrict() {
         return this.receiverDistrict;
     }
-     
+
     /**
      * 设置区/县
      * 
@@ -200,7 +207,7 @@ public class OrderShipping implements java.io.Serializable {
     public void setReceiverDistrict(String receiverDistrict) {
         this.receiverDistrict = receiverDistrict;
     }
-    
+
     /**
      * 获取收货地址，如：xx路xx号
      * 
@@ -209,17 +216,17 @@ public class OrderShipping implements java.io.Serializable {
     public String getReceiverAddress() {
         return this.receiverAddress;
     }
-     
+
     /**
      * 设置收货地址，如：xx路xx号
      * 
      * @param receiverAddress
-     *          收货地址，如：xx路xx号
+     *          收货地址
      */
     public void setReceiverAddress(String receiverAddress) {
         this.receiverAddress = receiverAddress;
     }
-    
+
     /**
      * 获取邮政编码,如：310001
      * 
@@ -228,17 +235,17 @@ public class OrderShipping implements java.io.Serializable {
     public String getReceiverZip() {
         return this.receiverZip;
     }
-     
+
     /**
      * 设置邮政编码,如：310001
      * 
      * @param receiverZip
-     *          邮政编码,如：310001
+     *          邮政编码
      */
     public void setReceiverZip(String receiverZip) {
         this.receiverZip = receiverZip;
     }
-    
+
     /**
      * 获取
      * 
@@ -247,17 +254,16 @@ public class OrderShipping implements java.io.Serializable {
     public Date getCreated() {
         return this.created;
     }
-     
+
     /**
      * 设置
      * 
      * @param created
-     *          
      */
     public void setCreated(Date created) {
         this.created = created;
     }
-    
+
     /**
      * 获取
      * 
@@ -266,12 +272,11 @@ public class OrderShipping implements java.io.Serializable {
     public Date getUpdated() {
         return this.updated;
     }
-     
+
     /**
      * 设置
      * 
      * @param updated
-     *          
      */
     public void setUpdated(Date updated) {
         this.updated = updated;

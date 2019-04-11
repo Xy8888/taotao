@@ -1,73 +1,80 @@
-/******************************************************************
-** 类    名：Content
-** 描    述：
-** 创 建 者：bianj
-** 创建时间：2019-03-30 19:25:38
-******************************************************************/
+/*
+ * Welcome to use the TableGo Tools.
+ * 
+ * http://vipbooks.iteye.com
+ * http://blog.csdn.net/vipbooks
+ * http://www.cnblogs.com/vipbooks
+ * 
+ * Author:bianj
+ * Email:edinsker@163.com
+ * Version:5.0.0
+ */
 
 package com.taotao.manager.model;
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
 
 /**
- * (TB_CONTENT)
+ * TB_CONTENT
  * 
  * @author bianj
- * @version 1.0.0 2019-03-30
+ * @version 1.0.0 2019-04-11
  */
 @Entity
 @Table(name = "TB_CONTENT")
 public class Content implements java.io.Serializable {
     /** 版本号 */
-    private static final long serialVersionUID = 8801223538837925491L;
-    
+    private static final long serialVersionUID = -16617931844117051L;
+
     /**  */
-    @Column(name = "ID")
+    @Id
+    @Column(name = "ID", unique = true, nullable = false, length = 19)
     private Long id;
-    
+
     /** 内容类目ID */
-    @Column(name = "CATEGORY_ID")
+    @Column(name = "CATEGORY_ID", nullable = false, length = 19)
     private Long categoryId;
-    
+
     /** 内容标题 */
-    @Column(name = "TITLE")
+    @Column(name = "TITLE", nullable = true, length = 200)
     private String title;
-    
+
     /** 子标题 */
-    @Column(name = "SUB_TITLE")
+    @Column(name = "SUB_TITLE", nullable = true, length = 100)
     private String subTitle;
-    
+
     /** 标题描述 */
-    @Column(name = "TITLE_DESC")
+    @Column(name = "TITLE_DESC", nullable = true, length = 500)
     private String titleDesc;
-    
+
     /** 链接 */
-    @Column(name = "URL")
+    @Column(name = "URL", nullable = true, length = 500)
     private String url;
-    
+
     /** 图片绝对路径 */
-    @Column(name = "PIC")
+    @Column(name = "PIC", nullable = true, length = 300)
     private String pic;
-    
+
     /** 图片2 */
-    @Column(name = "PIC2")
+    @Column(name = "PIC2", nullable = true, length = 300)
     private String pic2;
-    
+
     /** 内容 */
-    @Column(name = "CONTENT")
+    @Column(name = "CONTENT", nullable = true, length = 65535)
     private String content;
-    
+
     /**  */
-    @Column(name = "CREATED")
+    @Column(name = "CREATED", nullable = true)
     private Date created;
-    
+
     /**  */
-    @Column(name = "UPDATED")
+    @Column(name = "UPDATED", nullable = true)
     private Date updated;
-    
+
     /**
      * 获取
      * 
@@ -76,17 +83,16 @@ public class Content implements java.io.Serializable {
     public Long getId() {
         return this.id;
     }
-     
+
     /**
      * 设置
      * 
      * @param id
-     *          
      */
     public void setId(Long id) {
         this.id = id;
     }
-    
+
     /**
      * 获取内容类目ID
      * 
@@ -95,7 +101,7 @@ public class Content implements java.io.Serializable {
     public Long getCategoryId() {
         return this.categoryId;
     }
-     
+
     /**
      * 设置内容类目ID
      * 
@@ -105,7 +111,7 @@ public class Content implements java.io.Serializable {
     public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
     }
-    
+
     /**
      * 获取内容标题
      * 
@@ -114,7 +120,7 @@ public class Content implements java.io.Serializable {
     public String getTitle() {
         return this.title;
     }
-     
+
     /**
      * 设置内容标题
      * 
@@ -124,7 +130,7 @@ public class Content implements java.io.Serializable {
     public void setTitle(String title) {
         this.title = title;
     }
-    
+
     /**
      * 获取子标题
      * 
@@ -133,7 +139,7 @@ public class Content implements java.io.Serializable {
     public String getSubTitle() {
         return this.subTitle;
     }
-     
+
     /**
      * 设置子标题
      * 
@@ -143,7 +149,7 @@ public class Content implements java.io.Serializable {
     public void setSubTitle(String subTitle) {
         this.subTitle = subTitle;
     }
-    
+
     /**
      * 获取标题描述
      * 
@@ -152,7 +158,7 @@ public class Content implements java.io.Serializable {
     public String getTitleDesc() {
         return this.titleDesc;
     }
-     
+
     /**
      * 设置标题描述
      * 
@@ -162,7 +168,7 @@ public class Content implements java.io.Serializable {
     public void setTitleDesc(String titleDesc) {
         this.titleDesc = titleDesc;
     }
-    
+
     /**
      * 获取链接
      * 
@@ -171,7 +177,7 @@ public class Content implements java.io.Serializable {
     public String getUrl() {
         return this.url;
     }
-     
+
     /**
      * 设置链接
      * 
@@ -181,7 +187,7 @@ public class Content implements java.io.Serializable {
     public void setUrl(String url) {
         this.url = url;
     }
-    
+
     /**
      * 获取图片绝对路径
      * 
@@ -190,7 +196,7 @@ public class Content implements java.io.Serializable {
     public String getPic() {
         return this.pic;
     }
-     
+
     /**
      * 设置图片绝对路径
      * 
@@ -200,7 +206,7 @@ public class Content implements java.io.Serializable {
     public void setPic(String pic) {
         this.pic = pic;
     }
-    
+
     /**
      * 获取图片2
      * 
@@ -209,7 +215,7 @@ public class Content implements java.io.Serializable {
     public String getPic2() {
         return this.pic2;
     }
-     
+
     /**
      * 设置图片2
      * 
@@ -219,7 +225,7 @@ public class Content implements java.io.Serializable {
     public void setPic2(String pic2) {
         this.pic2 = pic2;
     }
-    
+
     /**
      * 获取内容
      * 
@@ -228,7 +234,7 @@ public class Content implements java.io.Serializable {
     public String getContent() {
         return this.content;
     }
-     
+
     /**
      * 设置内容
      * 
@@ -238,7 +244,7 @@ public class Content implements java.io.Serializable {
     public void setContent(String content) {
         this.content = content;
     }
-    
+
     /**
      * 获取
      * 
@@ -247,17 +253,16 @@ public class Content implements java.io.Serializable {
     public Date getCreated() {
         return this.created;
     }
-     
+
     /**
      * 设置
      * 
      * @param created
-     *          
      */
     public void setCreated(Date created) {
         this.created = created;
     }
-    
+
     /**
      * 获取
      * 
@@ -266,12 +271,11 @@ public class Content implements java.io.Serializable {
     public Date getUpdated() {
         return this.updated;
     }
-     
+
     /**
      * 设置
      * 
      * @param updated
-     *          
      */
     public void setUpdated(Date updated) {
         this.updated = updated;

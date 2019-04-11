@@ -28,7 +28,8 @@ $(function(){
         	if(node.id == 0){
         		// 新增节点
         		$.post("/rest/content/category/add",{parentId:node.parentId,name:node.text},function(data){
-        			_tree.tree("update",{
+        			console.log(data);
+        		    _tree.tree("update",{
         				target : node.target,
         				id : data.id
         			});

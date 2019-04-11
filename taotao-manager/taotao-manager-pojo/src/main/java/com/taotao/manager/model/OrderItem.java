@@ -1,60 +1,67 @@
-/******************************************************************
-** 类    名：OrderItem
-** 描    述：
-** 创 建 者：bianj
-** 创建时间：2019-03-30 19:25:38
-******************************************************************/
+/*
+ * Welcome to use the TableGo Tools.
+ * 
+ * http://vipbooks.iteye.com
+ * http://blog.csdn.net/vipbooks
+ * http://www.cnblogs.com/vipbooks
+ * 
+ * Author:bianj
+ * Email:edinsker@163.com
+ * Version:5.0.0
+ */
 
 package com.taotao.manager.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * (TB_ORDER_ITEM)
+ * TB_ORDER_ITEM
  * 
  * @author bianj
- * @version 1.0.0 2019-03-30
+ * @version 1.0.0 2019-04-11
  */
 @Entity
 @Table(name = "TB_ORDER_ITEM")
 public class OrderItem implements java.io.Serializable {
     /** 版本号 */
-    private static final long serialVersionUID = 328894469404745533L;
-    
+    private static final long serialVersionUID = -5492459509509056961L;
+
     /**  */
-    @Column(name = "ID")
+    @Id
+    @Column(name = "ID", unique = true, nullable = false, length = 20)
     private String id;
-    
+
     /** 商品id */
-    @Column(name = "ITEM_ID")
+    @Column(name = "ITEM_ID", nullable = false, length = 50)
     private String itemId;
-    
+
     /** 订单id */
-    @Column(name = "ORDER_ID")
+    @Column(name = "ORDER_ID", nullable = false, length = 50)
     private String orderId;
-    
+
     /** 商品购买数量 */
-    @Column(name = "NUM")
+    @Column(name = "NUM", nullable = true, length = 10)
     private Integer num;
-    
+
     /** 商品标题 */
-    @Column(name = "TITLE")
+    @Column(name = "TITLE", nullable = true, length = 200)
     private String title;
-    
+
     /** 商品单价 */
-    @Column(name = "PRICE")
+    @Column(name = "PRICE", nullable = true, length = 19)
     private Long price;
-    
+
     /** 商品总金额 */
-    @Column(name = "TOTAL_FEE")
+    @Column(name = "TOTAL_FEE", nullable = true, length = 19)
     private Long totalFee;
-    
+
     /** 商品图片地址 */
-    @Column(name = "PIC_PATH")
+    @Column(name = "PIC_PATH", nullable = true, length = 200)
     private String picPath;
-    
+
     /**
      * 获取
      * 
@@ -63,17 +70,16 @@ public class OrderItem implements java.io.Serializable {
     public String getId() {
         return this.id;
     }
-     
+
     /**
      * 设置
      * 
      * @param id
-     *          
      */
     public void setId(String id) {
         this.id = id;
     }
-    
+
     /**
      * 获取商品id
      * 
@@ -82,7 +88,7 @@ public class OrderItem implements java.io.Serializable {
     public String getItemId() {
         return this.itemId;
     }
-     
+
     /**
      * 设置商品id
      * 
@@ -92,7 +98,7 @@ public class OrderItem implements java.io.Serializable {
     public void setItemId(String itemId) {
         this.itemId = itemId;
     }
-    
+
     /**
      * 获取订单id
      * 
@@ -101,7 +107,7 @@ public class OrderItem implements java.io.Serializable {
     public String getOrderId() {
         return this.orderId;
     }
-     
+
     /**
      * 设置订单id
      * 
@@ -111,7 +117,7 @@ public class OrderItem implements java.io.Serializable {
     public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
-    
+
     /**
      * 获取商品购买数量
      * 
@@ -120,7 +126,7 @@ public class OrderItem implements java.io.Serializable {
     public Integer getNum() {
         return this.num;
     }
-     
+
     /**
      * 设置商品购买数量
      * 
@@ -130,7 +136,7 @@ public class OrderItem implements java.io.Serializable {
     public void setNum(Integer num) {
         this.num = num;
     }
-    
+
     /**
      * 获取商品标题
      * 
@@ -139,7 +145,7 @@ public class OrderItem implements java.io.Serializable {
     public String getTitle() {
         return this.title;
     }
-     
+
     /**
      * 设置商品标题
      * 
@@ -149,7 +155,7 @@ public class OrderItem implements java.io.Serializable {
     public void setTitle(String title) {
         this.title = title;
     }
-    
+
     /**
      * 获取商品单价
      * 
@@ -158,7 +164,7 @@ public class OrderItem implements java.io.Serializable {
     public Long getPrice() {
         return this.price;
     }
-     
+
     /**
      * 设置商品单价
      * 
@@ -168,7 +174,7 @@ public class OrderItem implements java.io.Serializable {
     public void setPrice(Long price) {
         this.price = price;
     }
-    
+
     /**
      * 获取商品总金额
      * 
@@ -177,7 +183,7 @@ public class OrderItem implements java.io.Serializable {
     public Long getTotalFee() {
         return this.totalFee;
     }
-     
+
     /**
      * 设置商品总金额
      * 
@@ -187,7 +193,7 @@ public class OrderItem implements java.io.Serializable {
     public void setTotalFee(Long totalFee) {
         this.totalFee = totalFee;
     }
-    
+
     /**
      * 获取商品图片地址
      * 
@@ -196,7 +202,7 @@ public class OrderItem implements java.io.Serializable {
     public String getPicPath() {
         return this.picPath;
     }
-     
+
     /**
      * 设置商品图片地址
      * 

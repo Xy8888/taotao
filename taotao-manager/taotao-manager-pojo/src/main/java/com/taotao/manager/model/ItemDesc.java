@@ -1,45 +1,52 @@
-/******************************************************************
-** 类    名：ItemDesc
-** 描    述：商品描述表
-** 创 建 者：bianj
-** 创建时间：2019-03-30 19:25:38
-******************************************************************/
+/*
+ * Welcome to use the TableGo Tools.
+ * 
+ * http://vipbooks.iteye.com
+ * http://blog.csdn.net/vipbooks
+ * http://www.cnblogs.com/vipbooks
+ * 
+ * Author:bianj
+ * Email:edinsker@163.com
+ * Version:5.0.0
+ */
 
 package com.taotao.manager.model;
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
 
 /**
  * 商品描述表(TB_ITEM_DESC)
  * 
  * @author bianj
- * @version 1.0.0 2019-03-30
+ * @version 1.0.0 2019-04-11
  */
 @Entity
 @Table(name = "TB_ITEM_DESC")
 public class ItemDesc implements java.io.Serializable {
     /** 版本号 */
-    private static final long serialVersionUID = -1551257661298567157L;
-    
+    private static final long serialVersionUID = -8298280515672645390L;
+
     /** 商品ID */
-    @Column(name = "ITEM_ID")
+    @Id
+    @Column(name = "ITEM_ID", unique = true, nullable = false, length = 19)
     private Long itemId;
-    
+
     /** 商品描述 */
-    @Column(name = "ITEM_DESC")
+    @Column(name = "ITEM_DESC", nullable = true, length = 65535)
     private String itemDesc;
-    
+
     /** 创建时间 */
-    @Column(name = "CREATED")
+    @Column(name = "CREATED", nullable = true)
     private Date created;
-    
+
     /** 更新时间 */
-    @Column(name = "UPDATED")
+    @Column(name = "UPDATED", nullable = true)
     private Date updated;
-    
+
     /**
      * 获取商品ID
      * 
@@ -48,7 +55,7 @@ public class ItemDesc implements java.io.Serializable {
     public Long getItemId() {
         return this.itemId;
     }
-     
+
     /**
      * 设置商品ID
      * 
@@ -58,7 +65,7 @@ public class ItemDesc implements java.io.Serializable {
     public void setItemId(Long itemId) {
         this.itemId = itemId;
     }
-    
+
     /**
      * 获取商品描述
      * 
@@ -67,7 +74,7 @@ public class ItemDesc implements java.io.Serializable {
     public String getItemDesc() {
         return this.itemDesc;
     }
-     
+
     /**
      * 设置商品描述
      * 
@@ -77,7 +84,7 @@ public class ItemDesc implements java.io.Serializable {
     public void setItemDesc(String itemDesc) {
         this.itemDesc = itemDesc;
     }
-    
+
     /**
      * 获取创建时间
      * 
@@ -86,7 +93,7 @@ public class ItemDesc implements java.io.Serializable {
     public Date getCreated() {
         return this.created;
     }
-     
+
     /**
      * 设置创建时间
      * 
@@ -96,7 +103,7 @@ public class ItemDesc implements java.io.Serializable {
     public void setCreated(Date created) {
         this.created = created;
     }
-    
+
     /**
      * 获取更新时间
      * 
@@ -105,7 +112,7 @@ public class ItemDesc implements java.io.Serializable {
     public Date getUpdated() {
         return this.updated;
     }
-     
+
     /**
      * 设置更新时间
      * 
