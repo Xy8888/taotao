@@ -115,6 +115,10 @@ public class ContentServiceImpl extends BaseServiceImpl<Content> implements Cont
         return json;
     }
 
+    /**
+     * 根据cid删除redis缓存
+     * @param cid
+     */
     private void delCache(Long cid) {
         redisUtil.del(Constant.RedisKey.INDEX_BIG_CONTENT + cid);
     }

@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.taotao</groupId>
@@ -9,8 +9,8 @@
   <modules>
     <module>../taotao-manager-web</module>
     <module>../taotao-manager</module>
-      <module>../taotao-common</module>
-      <module>../taotao-portal-web</module>
+    <module>../taotao-common</module>
+    <module>../taotao-portal-web</module>
   </modules>
 
 
@@ -31,12 +31,12 @@
     <commons.logging.version>1.2</commons.logging.version>
     <druid.version>1.0.13</druid.version>
     <solr.solrj.version>5.3.1</solr.solrj.version>
-    <slf4j.jcl.version>1.6.1</slf4j.jcl.version>
-    <slf4j.version>1.6.1</slf4j.version>
+    <slf4j.jcl.version>1.7.25</slf4j.jcl.version>
+    <slf4j.version>1.7.25</slf4j.version>
     <jstl.version>1.2</jstl.version>
     <servlet-api.version>2.4</servlet-api.version>
     <jsp-api.version>2.0</jsp-api.version>
-    <log4j.version>1.2.14</log4j.version>
+    <log4j.version>1.2.17</log4j.version>
     <log4j.core.version>2.3</log4j.core.version>
     <commons-lang3.version>3.3.2</commons-lang3.version>
     <dubbo.version>2.5.8</dubbo.version>
@@ -51,10 +51,26 @@
     <fastdfs.version>1.20</fastdfs.version>
     <jedis.version>2.9.0</jedis.version>
     <commons.pool2.version>2.5.0</commons.pool2.version>
+    <spring.data.redis.version>1.8.5.RELEASE</spring.data.redis.version>
+    <httpclient.version>4.3.1</httpclient.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
+      <!--httpclient-->
+      <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpclient</artifactId>
+        <version>${httpclient.version}</version>
+      </dependency>
+
+      <!--spring-data-redis-->
+      <dependency>
+        <groupId>org.springframework.data</groupId>
+        <artifactId>spring-data-redis</artifactId>
+        <version>${spring.data.redis.version}</version>
+      </dependency>
+
       <!--pool2-->
       <dependency>
         <groupId>org.apache.commons</groupId>
@@ -75,7 +91,6 @@
         <artifactId>fastdfs_client</artifactId>
         <version>${fastdfs.version}</version>
       </dependency>
-
       <!-- Jackson Json处理工具包 -->
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
@@ -114,7 +129,6 @@
         <artifactId>jsqlparser</artifactId>
         <version>${jsqlparser.version}</version>
       </dependency>
-
 
       <!--dubbo-->
       <dependency>
@@ -257,6 +271,11 @@
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-jcl</artifactId>
+        <version>${slf4j.jcl.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>jcl-over-slf4j</artifactId>
         <version>${slf4j.jcl.version}</version>
       </dependency>
       <dependency>
