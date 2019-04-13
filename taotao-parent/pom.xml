@@ -49,10 +49,25 @@
     <jsqlparser.version>0.9.1</jsqlparser.version>
     <jackson.version>2.9.2</jackson.version>
     <fastdfs.version>1.20</fastdfs.version>
+    <jedis.version>2.9.0</jedis.version>
+    <commons.pool2.version>2.5.0</commons.pool2.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
+      <!--pool2-->
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-pool2</artifactId>
+        <version>${commons.pool2.version}</version>
+      </dependency>
+
+      <!-- Redis客户端 -->
+      <dependency>
+        <groupId>redis.clients</groupId>
+        <artifactId>jedis</artifactId>
+        <version>${jedis.version}</version>
+      </dependency>
 
       <!-- fastdfs客户端 -->
       <dependency>

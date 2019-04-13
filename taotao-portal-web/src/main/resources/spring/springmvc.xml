@@ -16,6 +16,8 @@
     <context:annotation-config />
     <mvc:annotation-driven />
 
+    <context:property-placeholder location="classpath:resource/sysconstant.properties"/>
+
     <!--视图解析器配置-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/view/" />

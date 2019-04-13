@@ -3,9 +3,6 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          id="WebApp_ID" version="3.0">
 
-  <welcome-file-list>
-    <welcome-file>index.shtml</welcome-file>
-  </welcome-file-list>
   <!-- 编码过滤器 -->
   <filter>
     <filter-name>characterEncoding</filter-name>
@@ -67,4 +64,7 @@
     <url-pattern>*.shtml</url-pattern>
   </servlet-mapping>
   <!-- //End SpringMVC -->
+  <welcome-file-list>
+    <welcome-file>index.shtml</welcome-file>
+  </welcome-file-list>
 </web-app>

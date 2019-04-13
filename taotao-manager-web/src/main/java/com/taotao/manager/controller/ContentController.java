@@ -54,10 +54,7 @@ public class ContentController {
     @ResponseBody
     @RequestMapping(method = RequestMethod.POST, value = "/content")
     public String add(Content content) {
-        if (content.getCreated() == null) {
-            content.setCreated(new Date());
-        }
-        int acount = contentService.saveSelective(content);
+        int acount = contentService.addContent(content);
         if (acount > 0) {
             return "success";
         }
@@ -72,8 +69,7 @@ public class ContentController {
     @ResponseBody
     @RequestMapping(method = RequestMethod.POST, value = "/content/edit")
     public Map<String, Object> update(Content content) {
-        content.setUpdated(new Date());
-        int mcount = contentService.updateSelective(content);
+        int mcount = contentService.updateContent(content);
         Map<String, Object> dataMap = new HashMap<String, Object>();
         if (mcount > 0) {
             dataMap.put("status", 200);

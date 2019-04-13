@@ -25,7 +25,7 @@
     <dubbo:registry address="zookeeper://192.168.174.128:2181" />
 
     <!-- 使用注解方式暴露接口 -->
-    <dubbo:annotation package="com.taotao.protal.controller" />
+    <dubbo:annotation package="com.taotao.portal.controller" />
 
     <!-- 包扫描 -->
     <context:component-scan base-package="com.taotao.portal.controller"/>

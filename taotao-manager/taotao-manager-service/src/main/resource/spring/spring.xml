@@ -98,6 +98,14 @@
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean" />
     </bean>
 
+    <!--ObjectMapper-->
+    <bean class="com.fasterxml.jackson.databind.ObjectMapper"/>
+
     <!--导入dubbo配置-->
     <import resource="spring-dubbo.xml" />
+
+    <!--导入redis配置 单机-->
+    <import resource="spring-redis-single.xml"/>
+    <!--导入redis配置 集群-->
+    <!--<import resource="spring-redis-cluster.xml"/>-->
 </beans>
