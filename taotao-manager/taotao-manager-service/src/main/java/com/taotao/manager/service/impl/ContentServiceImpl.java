@@ -11,6 +11,8 @@ import com.taotao.manager.model.Content;
 import com.taotao.manager.service.ContentService;
 import com.taotao.redis.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -22,8 +24,8 @@ public class ContentServiceImpl extends BaseServiceImpl<Content> implements Cont
     @Autowired
     private ContentMapper contentMapper;
 
-    @Autowired
-    private RedisUtil redisUtil;
+    /*@Autowired
+    private RedisUtil redisUtil;*/
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -33,14 +35,15 @@ public class ContentServiceImpl extends BaseServiceImpl<Content> implements Cont
      * @param content
      * @return
      */
+    @CacheEvict(value = "Content", key ="'INDEX_BANNER_CATEGORY_ID_'+#content.categoryId")
     @Override
     public int addContent(Content content) {
         content.setCreated(new Date());
         content.setUpdated(new Date());
         int acount = contentMapper.insertSelective(content);
-        if (acount > 0) {
+        /*if (acount > 0) {
             delCache(content.getCategoryId());
-        }
+        }*/
         return acount;
     }
 
@@ -49,13 +52,14 @@ public class ContentServiceImpl extends BaseServiceImpl<Content> implements Cont
      * @param content
      * @return
      */
+    @CacheEvict(value = "Content", key = "'INDEX_BANNER_CATEGORY_ID_'+#content.categoryId")
     @Override
     public int updateContent(Content content) {
         content.setUpdated(new Date());
         int mcount = super.updateSelective(content);
-        if (mcount > 0) {
+        /*if (mcount > 0) {
             delCache(content.getCategoryId());
-        }
+        }*/
         return mcount;
     }
 
@@ -68,9 +72,9 @@ public class ContentServiceImpl extends BaseServiceImpl<Content> implements Cont
     public int deleteByIds(List<Object> ids) {
         Content content = contentMapper.selectByPrimaryKey(Long.parseLong(ids.get(0).toString()));
         int dcount = super.deleteByIds(ids);
-        if (content != null) {
+        /*if (content != null) {
             delCache(content.getCategoryId());
-        }
+        }*/
         return dcount;
     }
 
@@ -89,11 +93,12 @@ public class ContentServiceImpl extends BaseServiceImpl<Content> implements Cont
      * @return
      * @throws Exception
      */
+    @Cacheable(value = "Content", key = "'INDEX_BANNER_CATEGORY_ID_'+#cid")
     @Override
     public String getBigAd(long cid) throws Exception {
-        if (redisUtil.exists(Constant.RedisKey.INDEX_BIG_CONTENT + cid)) {
+        /*if (redisUtil.exists(Constant.RedisKey.INDEX_BIG_CONTENT + cid)) {
             return redisUtil.get(Constant.RedisKey.INDEX_BIG_CONTENT + cid);
-        }
+        }*/
         Content searchContent = new Content();
         searchContent.setCategoryId(cid);
         List<Content> contents = contentMapper.select(searchContent);
@@ -111,7 +116,7 @@ public class ContentServiceImpl extends BaseServiceImpl<Content> implements Cont
             listMap.add(dataMap);
         }
         String json = objectMapper.writeValueAsString(listMap);
-        redisUtil.add(Constant.RedisKey.INDEX_BIG_CONTENT + cid, json);
+        /*redisUtil.add(Constant.RedisKey.INDEX_BIG_CONTENT + cid, json);*/
         return json;
     }
 
@@ -119,7 +124,7 @@ public class ContentServiceImpl extends BaseServiceImpl<Content> implements Cont
      * 根据cid删除redis缓存
      * @param cid
      */
-    private void delCache(Long cid) {
+    /*private void delCache(Long cid) {
         redisUtil.del(Constant.RedisKey.INDEX_BIG_CONTENT + cid);
-    }
+    }*/
 }
