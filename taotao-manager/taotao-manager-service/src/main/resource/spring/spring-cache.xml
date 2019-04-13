@@ -51,6 +51,7 @@
     </bean>
 
     <!--引入redis配置文件-->
-    <import resource="spring-data-redis-single.xml"/>
+    <!--<import resource="spring-data-redis-single.xml"/>-->
+    <import resource="spring-data-redis-cluster.xml"/>
 
 </beans>
