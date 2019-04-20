@@ -75,7 +75,7 @@
         </dependency>
 
         <!--日志包-->
-        <dependency>
+        <!--<dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-jcl</artifactId>
         </dependency>
@@ -88,7 +88,7 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <optional>true</optional>
-        </dependency>
+        </dependency>-->
 
         <!--文件上传组件-->
         <dependency>

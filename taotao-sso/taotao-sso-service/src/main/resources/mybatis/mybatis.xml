@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- 配置MyBatis插件 -->
+    <plugins>
+        <!-- 分页插件 -->
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <!-- 数据库方言 -->
+            <property name="dialect" value="mysql"/>
+            <!-- RowBounds方式做count查询 -->
+            <property name="rowBoundsWithCount" value="true"/>
+        </plugin>
+
+        <plugin interceptor="com.github.abel533.mapperhelper.MapperInterceptor">
+            <!-- 主键自增策略，默认值MYSQL，这里和hibernate的方言类似 -->
+            <property name="IDENTITY" value="MYSQL"/>
+            <!--通用Mapper接口 ，如果有多个用逗号隔开-->
+            <property name="mappers" value="com.github.abel533.mapper.Mapper"/>
+        </plugin>
+    </plugins>
+</configuration>

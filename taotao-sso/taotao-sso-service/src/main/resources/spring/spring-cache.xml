@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/cache
+        http://www.springframework.org/schema/cache/spring-cache.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+
+    <!--开启缓存注解驱动-->
+    <cache:annotation-driven cache-manager="redisCacheManager" />
+
+    <!--序列化方式-->
+    <bean class="org.springframework.data.redis.serializer.StringRedisSerializer" id="stringRedisSerializer" />
+    <bean class="org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer" id="genericJackson2JsonRedisSerializer" />
+
+    <!--对Redis操作的对象-->
+    <bean class="org.springframework.data.redis.core.RedisTemplate" id="redisTemplate">
+        <property name="connectionFactory" ref="connectionFactory" />
+
+        <!--键序列化方式-->
+        <property name="keySerializer" ref="stringRedisSerializer" />
+
+        <!--值的序列化-->
+        <property name="valueSerializer" ref="genericJackson2JsonRedisSerializer" />
+    </bean>
+
+
+    <bean class="org.springframework.data.redis.cache.RedisCacheManager" id="redisCacheManager">
+        <!--注入兑换成操作的对象-->
+        <constructor-arg name="redisOperations" ref="redisTemplate" />
+
+        <!--默认所有缓存有效时间设置-->
+        <property name="defaultExpiration" value="30" />
+
+        <!--管理缓存的命名空间-->
+        <property name="cacheNames">
+            <list>
+                <value>User</value>
+            </list>
+        </property>
+
+        <!--指定对应的缓存时间-->
+        <property name="expires">
+            <map>
+                <entry key="User" value="3600" />
+            </map>
+        </property>
+    </bean>
+
+
+    <!--引入单机版-->
+    <!--<import resource="spring-data-redis-single.xml" />-->
+    <import resource="spring-data-redis-cluster.xml" />
+
+</beans>
