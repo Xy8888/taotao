@@ -8,3 +8,5 @@ taotao-project for test
 ### 2.dubbo-admin看不到消费者，但服务可以正常消费
 
 ### 3.根据id列表删除未删除缓存
+
+### 4.登陆后未显示用户名
