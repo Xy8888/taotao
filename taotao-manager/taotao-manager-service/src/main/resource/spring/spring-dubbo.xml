@@ -23,8 +23,10 @@
     <dubbo:application name="taotao-manager-service" />
 
     <!--使用zookeeper注册中心暴露服务地址-->
-    <dubbo:registry address="zookeeper://192.168.174.128:2181" />
+    <!--<dubbo:registry address="zookeeper://192.168.174.128:2181" />-->
     <!--<dubbo:registry address="zookeeper://localhost:2181" />-->
+    <!--zookeeper集群配置-->
+    <dubbo:registry protocol="zookeeper" address="192.168.174.128:2182,192.168.174:2183,192.168.174:2184"/>
 
     <!-- 用dubbo协议在20880端口暴露服务 -->
     <dubbo:protocol name="dubbo" host="192.168.174.1" port="20880" />
