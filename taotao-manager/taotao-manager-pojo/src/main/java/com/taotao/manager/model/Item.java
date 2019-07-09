@@ -12,6 +12,8 @@
 
 package com.taotao.manager.model;
 
+import com.taotao.solr.annotation.SolrField;
+
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,10 +35,12 @@ public class Item implements java.io.Serializable {
     /** 商品id，同时也是商品编号 */
     @Id
     @Column(name = "ID", unique = true, nullable = false, length = 19)
+    @SolrField(value = "id")
     private Long id;
 
     /** 商品标题 */
     @Column(name = "TITLE", nullable = false, length = 100)
+    @SolrField(value = "item_title")
     private String title;
 
     /** 商品卖点 */
@@ -45,6 +49,7 @@ public class Item implements java.io.Serializable {
 
     /** 商品价格，单位为：分 */
     @Column(name = "PRICE", nullable = false, length = 19)
+    @SolrField(value = "item_price")
     private Long price;
 
     /** 库存数量 */
@@ -57,14 +62,17 @@ public class Item implements java.io.Serializable {
 
     /** 商品图片 */
     @Column(name = "IMAGE", nullable = true, length = 500)
+    @SolrField(value = "item_image")
     private String image;
 
     /** 所属类目，叶子类目 */
     @Column(name = "CID", nullable = false, length = 19)
+    @SolrField(value = "item_cid")
     private Long cid;
 
     /** 商品状态，1-正常，2-下架，3-删除 */
     @Column(name = "STATUS", nullable = false, length = 3)
+    @SolrField(value = "item_status",stored = false)
     private Integer status;
 
     /** 创建时间 */

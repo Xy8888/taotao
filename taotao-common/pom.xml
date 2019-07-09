@@ -69,6 +69,18 @@
             <artifactId>jsp-api</artifactId>
             <scope>provided</scope>
         </dependency>
+
+        <!--solrj-->
+        <dependency>
+            <groupId>org.apache.solr</groupId>
+            <artifactId>solr-solrj</artifactId>
+        </dependency>
+
+        <!--beanutils-->
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
