@@ -59,7 +59,7 @@ public class ContentCategoryController {
      */
     @ResponseBody
     @RequestMapping(method = RequestMethod.POST, value = "/category/delete")
-    public String delete(ContentCategory contentCategory) {
+    public String delete(ContentCategory contentCategory) throws Exception {
         int dcount = contentCategoryService.deleteContentCategory(contentCategory);
         return "success";
     }

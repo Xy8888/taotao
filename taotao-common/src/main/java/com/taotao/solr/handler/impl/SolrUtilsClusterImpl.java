@@ -5,6 +5,7 @@ import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.CloudSolrClient;
 import org.apache.solr.client.solrj.response.QueryResponse;
+import org.apache.solr.client.solrj.response.UpdateResponse;
 import org.apache.solr.common.SolrInputDocument;
 
 import java.io.IOException;
@@ -33,6 +34,13 @@ public class SolrUtilsClusterImpl implements SolrUtils {
         QueryResponse response = solrClient.query(solrQuery);
         return response;
     }
+
+    @Override
+    public UpdateResponse deleteByIds(List<String> ids) throws IOException, SolrServerException {
+        UpdateResponse response = solrClient.deleteById(ids);
+        return response;
+    }
+
 
     public void setSolrClient(CloudSolrClient solrClient) {
         this.solrClient = solrClient;

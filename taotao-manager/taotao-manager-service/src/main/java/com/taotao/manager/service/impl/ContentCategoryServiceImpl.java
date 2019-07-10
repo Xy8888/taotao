@@ -56,7 +56,7 @@ public class ContentCategoryServiceImpl extends BaseServiceImpl<ContentCategory>
     }
 
     @Override
-    public int deleteContentCategory(ContentCategory contentCategory) {
+    public int deleteContentCategory(ContentCategory contentCategory) throws Exception {
         // 查找到当前内容所有子类,递归查找
         List allIds = new ArrayList<Long>();
         allDeleteNode(allIds, contentCategory.getId());

@@ -3,6 +3,7 @@ package com.taotao.solr.handler;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.response.QueryResponse;
+import org.apache.solr.client.solrj.response.UpdateResponse;
 import org.apache.solr.common.SolrInputDocument;
 
 import java.io.IOException;
@@ -18,4 +19,6 @@ public interface SolrUtils {
     void addDocs(List<SolrInputDocument> docs) throws IOException, SolrServerException;
 
     QueryResponse query(SolrQuery solrQuery) throws IOException, SolrServerException;
+
+    UpdateResponse deleteByIds(List<String> ids) throws IOException, SolrServerException;
 }

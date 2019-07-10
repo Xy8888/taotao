@@ -5,6 +5,7 @@ import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.response.QueryResponse;
+import org.apache.solr.client.solrj.response.UpdateResponse;
 import org.apache.solr.common.SolrInputDocument;
 
 import java.io.IOException;
@@ -33,6 +34,11 @@ public class SolrUtilsSingleImpl implements SolrUtils{
     public QueryResponse query(SolrQuery solrQuery) throws IOException, SolrServerException {
         QueryResponse response = solrClient.query(solrQuery);
         return response;
+    }
+
+    @Override
+    public UpdateResponse deleteByIds(List<String> ids) throws IOException, SolrServerException {
+        return null;
     }
 
     public void setSolrClient(SolrClient solrClient) {

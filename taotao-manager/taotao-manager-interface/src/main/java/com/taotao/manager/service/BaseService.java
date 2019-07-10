@@ -38,7 +38,7 @@ public interface BaseService<T> {
      * @param ids
      * @return
      */
-    int deleteByIds(List<Object> ids);
+    int deleteByIds(List<Object> ids) throws Exception;
 
     /***
      * 根据ID查询一个对象

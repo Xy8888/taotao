@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,7 +58,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
     }
 
     @Override
-    public int deleteByIds(List<Object> ids) {
+    public int deleteByIds(List<Object> ids) throws Exception {
         Example example = new Example(clazz);
         Criteria criteria = example.createCriteria();
 

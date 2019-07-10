@@ -108,4 +108,6 @@
     <!--<import resource="spring-redis-cluster.xml"/>-->
     <!--引入cache配置，spring管理redis-->
     <import resource="spring-cache.xml" />
+    <!--引入mq-->
+    <import resource="spring-activemq.xml"/>
 </beans>

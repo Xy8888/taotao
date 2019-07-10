@@ -10,10 +10,12 @@ import com.taotao.manager.model.Item;
 import com.taotao.search.service.ItemService;
 import com.taotao.solr.handler.SolrUtils;
 import com.taotao.solr.transfer.ModelTransForDoc;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.response.QueryResponse;
+import org.apache.solr.client.solrj.response.UpdateResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
 import org.apache.solr.common.SolrInputDocument;
@@ -23,6 +25,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -93,5 +96,21 @@ public class ItemServiceImpl implements ItemService {
         //封装page对象
         Page<Item> pageInfo = new Page<Item>(allFound, page, size, items);
         return pageInfo;
+    }
+
+    @Override
+    public void importItem2Index(long id) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, IOException, SolrServerException {
+        Item item = itemMapper.selectByPrimaryKey(id);
+        SolrInputDocument doc = ModelTransForDoc.model2Doc(item);
+        solrUtils.addDoc(doc);
+    }
+
+    @Override
+    public void deleteItemIndex(List ids) throws IOException, SolrServerException {
+        List<String> newIds = new ArrayList<>(ids.size());
+        for (int i = 0; i < ids.size(); i++) {
+            newIds.add(i, String.valueOf(ids.get(i)));
+        }
+        UpdateResponse response = solrUtils.deleteByIds(newIds);
     }
 }

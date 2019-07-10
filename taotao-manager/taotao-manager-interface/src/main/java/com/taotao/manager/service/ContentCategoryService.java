@@ -11,5 +11,5 @@ public interface ContentCategoryService extends BaseService<ContentCategory> {
 
     int updateContentCategory(ContentCategory contentCategory);
 
-    int deleteContentCategory(ContentCategory contentCategory);
+    int deleteContentCategory(ContentCategory contentCategory) throws Exception;
 }

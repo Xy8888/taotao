@@ -69,7 +69,7 @@ public class ContentServiceImpl extends BaseServiceImpl<Content> implements Cont
      * @return
      */
     @Override
-    public int deleteByIds(List<Object> ids) {
+    public int deleteByIds(List<Object> ids) throws Exception {
         Content content = contentMapper.selectByPrimaryKey(Long.parseLong(ids.get(0).toString()));
         int dcount = super.deleteByIds(ids);
         /*if (content != null) {

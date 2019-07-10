@@ -87,7 +87,7 @@ public class ContentController {
     @ResponseBody
     @RequestMapping(method = RequestMethod.POST, value = "/content/delete")
     public Map<String, Object> deleteByIds(
-            @RequestParam(value = "ids", required = false, defaultValue = "null")List<Object> ids) {
+            @RequestParam(value = "ids", required = false, defaultValue = "null")List<Object> ids) throws Exception {
         int dcount = contentService.deleteByIds(ids);
         Map<String, Object> dataMap = new HashMap<String, Object>();
         if (dcount > 0) {

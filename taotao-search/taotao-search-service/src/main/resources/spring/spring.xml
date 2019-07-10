@@ -115,5 +115,6 @@
     <!--集群版solr-->
     <import resource="spring-solrcluster.xml" />
 
-
+    <!--引入mq-->
+    <import resource="spring-activemq.xml"/>
 </beans>
