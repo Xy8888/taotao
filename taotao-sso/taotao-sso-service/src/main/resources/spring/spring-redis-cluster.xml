@@ -53,8 +53,8 @@
     </bean>
 
     <!--操作Redis集群版-->
-    <bean class="com.taotao.redis.impl.RedisUtilsCluster">
-        <property name="cluster" ref="jedisCluster" />
+    <bean class="com.taotao.redis.impl.ClusterRedisUtil">
+        <property name="jedisCluster" ref="jedisCluster" />
     </bean>
 
 
