@@ -51,7 +51,7 @@
     <pagehelper.version>3.7.5</pagehelper.version>
     <mapper.version>2.3.4</mapper.version>
     <jsqlparser.version>0.9.1</jsqlparser.version>
-    <jackson.version>2.9.2</jackson.version>
+    <jackson.version>2.10.1</jackson.version>
     <fastdfs.version>1.20</fastdfs.version>
     <jedis.version>2.9.0</jedis.version>
     <commons.pool2.version>2.5.0</commons.pool2.version>
